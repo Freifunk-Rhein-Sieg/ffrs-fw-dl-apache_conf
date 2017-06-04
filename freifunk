@@ -1,0 +1,185 @@
+<VirtualHost *:80>
+#<VirtualHost 46.4.138.183:80 [2a01:4f8:11d:600::183]:80>
+#<VirtualHost *:80 [2a01:4f8:11d:600::183]:80 [2a03:2260:121::24]:80>
+	ServerName images.freifunk-troisdorf.de
+	ServerAdmin roman@freifunk-troisdorf.de
+
+	DocumentRoot /srv/fwuploads/troisdorf
+	Redirect 301 /stable http://downloader.freifunk-rhein-sieg.de
+	Redirect 301 /experimental http://downloader.freifunk-rhein-sieg.de
+	Redirect 301 /beta http://downloader.freifunk-rhein-sieg.de
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /srv/fwuploads/troisdorf/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+#	Alias "/testing" "/srv/ffrs-fw-dl/"
+#        <Directory /srv/ffrs-fw-dl/>
+#                Options Indexes FollowSymLinks MultiViews
+#                AllowOverride None
+#                Order allow,deny
+#                allow from all
+#        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        #CustomLog ${APACHE_LOG_DIR}/access.log combined
+	CustomLog /var/log/apache2/access_tdf.log combined
+</VirtualHost>
+
+
+## Rhein-Sieg
+<VirtualHost *:80>
+	ServerName images.freifunk-rhein-sieg.de
+	ServerAlias update2.infra.fftdf
+        ServerAdmin roman@freifunk-troisdorf.de
+
+        DocumentRoot /srv/fwuploads
+
+        Redirect 301 /troisdorf/stable http://downloader.freifunk-rhein-sieg.de
+        Redirect 301 /troisdorf/experimental http://downloader.freifunk-rhein-sieg.de
+        Redirect 301 /troisdorf/beta http://downloader.freifunk-rhein-sieg.de
+
+
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /srv/fwuploads/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+## Rhein-Sieg Firmware Downloader
+<VirtualHost *:80>
+	ServerName downloader.freifunk-troisdorf.de
+	ServerAlias downloader.freifunk-siegburg.de downloader.freifunk-rhein-sieg.de
+        ServerAdmin roman@freifunk-troisdorf.de
+
+        DocumentRoot /srv/downloader/
+
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /srv/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        Alias "/fwuploads" "/srv/fwuploads"
+        <Directory /srv/fwuploads>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+## Siegburg Firmware (Downloader)
+<VirtualHost *:80>
+        ServerName images.freifunk-siegburg.de
+        ServerAdmin kontakt@freifunk-troisdorf.de
+
+        DocumentRoot /srv/fwuploads/siegburg/
+
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /srv/fwuploads/siegburg/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+#        Alias "/fwuploads" "/srv/fwuploads"
+#        <Directory /srv/fwuploads>
+#                Options Indexes FollowSymLinks MultiViews
+#                AllowOverride None
+#                Order allow,deny
+#                allow from all
+#        </Directory>
+
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+## Rhein-Sieg Firmware Downloader testing
+<VirtualHost *:80>
+        ServerName downloader.freifunk-rhein-sieg.net
+	ServerAlias freifunk-rhein-sieg.net
+        ServerAdmin roman@freifunk-troisdorf.de
+
+        DocumentRoot /srv/ffrs-fw-dl/
+
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /srv/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        Alias "/fwuploads" "/srv/fwuploads"
+        <Directory /srv/fwuploads>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
