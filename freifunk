@@ -87,7 +87,7 @@
        		Deny from fda0:747e:ab29:2241:ee08:6bff:fe20:4ef4
        		Deny from fda0:747e:ab29:2241:ee08:6bff:fe59:6216
        		Deny from fda0:747e:ab29:2241:f6f2:6dff:fe35:9fa
-        	Deny from fda0:747e:ab29:2241:1aa6:f7ff:fe7a2c92
+        	Deny from fda0:747e:ab29:2241:1aa6:f7ff:fe7a:2c92
        		Deny from fda0:747e:ab29:2241:f6f2:6dff:fee8:6712
        		Deny from fda0:747e:ab29:2241:32b5:c2ff:fe3e:7fde
        		Deny from fda0:747e:ab29:2241:32b5:c2ff:fe3e:849c
