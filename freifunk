@@ -41,7 +41,7 @@
 ## Rhein-Sieg
 <VirtualHost *:80>
 	ServerName images.freifunk-rhein-sieg.de
-	ServerAlias update2.infra.fftdf firmware.freifunk-siegburg.de
+	ServerAlias update2.infra.fftdf firmware.freifunk-siegburg.de firmware.freifunk-rhein-sieg.net
         ServerAdmin roman@freifunk-troisdorf.de
 
         DocumentRoot /srv/fwuploads
