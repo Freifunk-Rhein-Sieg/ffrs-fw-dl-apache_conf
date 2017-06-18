@@ -123,7 +123,7 @@
 	ServerAlias downloader.freifunk-siegburg.de downloader.freifunk-rhein-sieg.de
         ServerAdmin roman@freifunk-troisdorf.de
 
-        DocumentRoot /srv/downloader/
+        DocumentRoot /srv/ffrs-fw-dl/
 
         <Directory />
                 Options FollowSymLinks
@@ -171,7 +171,6 @@
                 Order allow,deny
                 allow from all
         </Directory>
-
 #        Alias "/fwuploads" "/srv/fwuploads"
 #        <Directory /srv/fwuploads>
 #                Options Indexes FollowSymLinks MultiViews
@@ -193,11 +192,12 @@
 ## Rhein-Sieg Firmware Downloader testing
 <VirtualHost *:80>
         ServerName downloader.freifunk-rhein-sieg.net
-	ServerAlias freifunk-rhein-sieg.net
+	    ServerAlias freifunk-rhein-sieg.net
         ServerAdmin roman@freifunk-troisdorf.de
 
         DocumentRoot /srv/ffrs-fw-dl/
 
+        Alias "/old" "/srv/downloader"
         <Directory />
                 Options FollowSymLinks
                 AllowOverride None
