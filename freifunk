@@ -43,9 +43,20 @@
         ServerAdmin roman@freifunk-troisdorf.de
 
         DocumentRoot /srv/fwuploads/troisdorf
-		        </Directory>
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
+		
+		 <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /srv/fwuploads/troisdorf/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+		
+        ErrorLog ${APACHE_LOG_DIR}/autoupdater_tdf.log
 
         # Possible values include: debug, info, notice, warn, error, crit,
         # alert, emerg.
@@ -53,6 +64,7 @@
 
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
+
 
 ## Rhein-Sieg
 <VirtualHost *:80>
