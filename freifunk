@@ -37,11 +37,27 @@
 	CustomLog /var/log/apache2/access_tdf.log combined
 </VirtualHost>
 
+## Troisdorf Autoupdater
+<VirtualHost *:80>
+	ServerName update2.infra.fftdf
+        ServerAdmin roman@freifunk-troisdorf.de
+
+        DocumentRoot /srv/fwuploads/troisdorf
+		        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
 
 ## Rhein-Sieg
 <VirtualHost *:80>
 	ServerName images.freifunk-rhein-sieg.de
-	ServerAlias update2.infra.fftdf firmware.freifunk-siegburg.de firmware.freifunk-rhein-sieg.net
+	ServerAlias firmware.freifunk-siegburg.de firmware.freifunk-rhein-sieg.net
         ServerAdmin roman@freifunk-troisdorf.de
 
         DocumentRoot /srv/fwuploads
