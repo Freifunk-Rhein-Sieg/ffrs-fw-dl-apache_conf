@@ -1,0 +1,25 @@
+## Troisdorf Autoupdater
+<VirtualHost [2a01:4f8:11d:600::183]:80>
+	ServerName update2.infra.fftdf
+        ServerAdmin roman@freifunk-troisdorf.de
+
+        DocumentRoot /srv/fwuploads/troisdorf
+
+		
+	<Directory />
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+		
+        ErrorLog ${APACHE_LOG_DIR}/autoupdater_tdf.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+	
+        #CustomLog ${APACHE_LOG_DIR}/access.log combined
+	CustomLog /var/log/apache2/access_tdf.log combined
+
+</VirtualHost>
