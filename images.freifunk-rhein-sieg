@@ -1,0 +1,33 @@
+## Rhein-Sieg
+#<VirtualHost *:80>
+<VirtualHost 46.4.138.183:80 [2a01:4f8:11d:600::183]:80>
+	ServerName images.freifunk-rhein-sieg.de
+	ServerAlias firmware.freifunk-siegburg.de firmware.freifunk-rhein-sieg.net
+        ServerAdmin roman@freifunk-troisdorf.de
+
+        DocumentRoot /srv/fwuploads
+
+        Redirect 301 /troisdorf/stable http://downloader.freifunk-rhein-sieg.de
+        Redirect 301 /troisdorf/experimental http://downloader.freifunk-rhein-sieg.de
+        Redirect 301 /troisdorf/beta http://downloader.freifunk-rhein-sieg.de
+
+
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /srv/fwuploads>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
