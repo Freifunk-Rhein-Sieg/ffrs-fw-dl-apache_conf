@@ -1,5 +1,6 @@
 ## Rhein-Sieg Autoupdater des alten Wupper-Bereichs
-<VirtualHost [fda0:747e:ab29:2241::22]:80>
+#<VirtualHost [fda0:747e:ab29:2241::22]:80>
+<VirtualHost *:80>
 	
         DocumentRoot /srv/fwuploads
 
