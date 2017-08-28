@@ -23,7 +23,16 @@
 </VirtualHost>
 
 
-#<VirtualHost *:80>
+<VirtualHost *:80>
+        ServerName github-webhook.freifunk-rhein-sieg.net
+        ServerAdmin roman@freifunk-troisdorf.de
+
+        DocumentRoot /srv/github-webhook
+        <Directory />
+            Options -Indexes
+        </Directory>
+
+</VirtualHost>
 <VirtualHost *:80>
 #<VirtualHost *:80 [2a01:4f8:11d:600::183]:80 [2a03:2260:121::24]:80>
 	ServerName images.freifunk-troisdorf.de
