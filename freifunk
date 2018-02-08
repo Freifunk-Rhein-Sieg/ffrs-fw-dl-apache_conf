@@ -7,10 +7,15 @@
         Redirect 301 /troisdorf/experimental http://downloader.freifunk-rhein-sieg.de
         Redirect 301 /troisdorf/beta http://downloader.freifunk-rhein-sieg.de
 
-
         <Directory />
                 Options FollowSymLinks
                 AllowOverride None
+        </Directory>
+        <Directory /srv/fwuploads/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
         </Directory>
 
         ErrorLog ${APACHE_LOG_DIR}/error.log
