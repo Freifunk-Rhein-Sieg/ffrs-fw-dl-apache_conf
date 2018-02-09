@@ -107,7 +107,7 @@
 </VirtualHost>
 <VirtualHost *:80>
         ServerName images.freifunk-rhein-sieg.de
-        ServerAlias firmware.freifunk-siegburg.de firmware.freifunk-rhein-sieg.net
+        ServerAlias firmware.freifunk-rhein-sieg.net images.freifunk-rhein-sieg.net
         ServerAdmin roman@freifunk-troisdorf.de
 
         DocumentRoot /srv/fwuploads
@@ -205,6 +205,7 @@
 #<VirtualHost *:80>
 <VirtualHost *:80>
         ServerName images.freifunk-siegburg.de
+        ServerAlias firmware.freifunk-siegburg.de
         ServerAdmin kontakt@freifunk-troisdorf.de
 
         DocumentRoot /srv/fwuploads/siegburg/
@@ -237,11 +238,11 @@
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-## Rhein-Sieg Firmware Downloader testing
+## Rhein-Sieg Firmware Downloader
 #<VirtualHost *:80>
 <VirtualHost *:80>
         ServerName downloader.freifunk-rhein-sieg.net
-	    ServerAlias freifunk-rhein-sieg.net
+	    ServerAlias freifunk-rhein-sieg.net downloader.freifunk-siegburg.de downloader.freifunk-troisdorf.de
         ServerAdmin roman@freifunk-troisdorf.de
 
         DocumentRoot /srv/ffrs-fw-dl/
